@@ -29,31 +29,7 @@ private:
 		
 };
 
-template<>
-class container_wrapper< boost::optional<int> > {
 
-public:	
-		container_wrapper() = default;		
-
-		container_wrapper(boost::optional<int> arg ): _value(std::move( arg )){
-		}
-
-		container_wrapper( const container_wrapper &) = default;
-	
-		container_wrapper( container_wrapper &&) = default;		
-		
-		container_wrapper & operator = (const container_wrapper &) = default;
-
-		container_wrapper &operator = (container_wrapper &&) = default;		
-		
-		std::size_t size() const{
-			return _value ? 1 : 0;;
-		}
-
-private:
-		boost::optional<int> _value;
-		
-};
 
 
 
@@ -82,6 +58,30 @@ private:
 		
 };
 
+template<>
+class container_wrapper< boost::optional<int> > {
 
+public:	
+		container_wrapper() = default;		
+
+		container_wrapper(boost::optional<int> arg ): _value(std::move( arg )){
+		}
+
+		container_wrapper( const container_wrapper &) = default;
+	
+		container_wrapper( container_wrapper &&) = default;		
+		
+		container_wrapper & operator = (const container_wrapper &) = default;
+
+		container_wrapper &operator = (container_wrapper &&) = default;		
+		
+		std::size_t size() const{
+			return   1;
+		}
+
+private:
+		boost::optional<int> _value;
+		
+};
 
 
